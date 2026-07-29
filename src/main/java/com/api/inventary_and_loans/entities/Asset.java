@@ -18,7 +18,7 @@ public class Asset {
     @Column(nullable = false)
     private String name;
 
-    private String category; // Ej: "Tunic", "Staff", "Medal"
+    private String category; // Ex: "Tunic", "Staff", "Medal"
 
-    private String status; // Ej: "Available", "In Use", "Maintenance"
+    private String status; // Ex: "Available", "In Use", "Maintenance"
 }
