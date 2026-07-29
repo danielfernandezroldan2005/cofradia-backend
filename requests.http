@@ -1,0 +1,15 @@
+### 1. Create a new asset (POST)
+POST http://localhost:8080/api/assets
+Content-Type: application/json
+
+{
+  "name": "Túnica de Nazareno - Talla L",
+  "category": "Tunic",
+  "status": "Available"
+}
+
+###
+
+### 2. Get all assets (GET)
+GET http://localhost:8080/api/assets
+Accept: application/json
