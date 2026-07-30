@@ -13,3 +13,20 @@ Content-Type: application/json
 ### 2. Get all assets (GET)
 GET http://localhost:8080/api/assets
 Accept: application/json
+
+### 3. Create a new member (POST)
+POST http://localhost:8080/api/members
+Content-Type: application/json
+
+{
+  "firstName": "Antonio",
+  "lastName": "García",
+  "nationalId": "12345678A",
+  "memberNumber": 150
+}
+
+###
+
+### 4. Find member by National ID (GET)
+GET http://localhost:8080/api/members/dni/12345678A
+Accept: application/json
