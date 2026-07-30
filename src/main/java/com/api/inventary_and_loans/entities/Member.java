@@ -20,5 +20,5 @@ public class Member {
 
     private String firstName;
     private String lastName;
-    private String nationalId; // Para el DNI
+    private String nationalId; // For DNI
 }

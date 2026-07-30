@@ -26,3 +26,7 @@ Content-Type: application/json
 ### 4. Find member by National ID (GET)
 GET http://localhost:8080/api/members/dni/12345678A
 Accept: application/json
+
+### 5. Assign Asset 1 to Member 1 (PUT)
+PUT http://localhost:8080/api/assets/1/assign/1
+Accept: application/json
