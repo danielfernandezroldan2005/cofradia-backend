@@ -44,7 +44,7 @@ public class AssetController {
         return ResponseEntity.noContent().build();
     }
 
-    // Endpoint to assign an asset to a member
+    // Endpoint to assign an asset to a member. (PUT)
     @PutMapping("/{assetId}/assign/{memberId}")
     public ResponseEntity<Asset> assignAssetToMember(@PathVariable Long assetId, @PathVariable Long memberId) {
         try {
