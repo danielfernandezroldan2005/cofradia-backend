@@ -8,8 +8,6 @@ Content-Type: application/json
   "status": "Available"
 }
 
-###
-
 ### 2. Get all assets (GET)
 GET http://localhost:8080/api/assets
 Accept: application/json
@@ -24,8 +22,6 @@ Content-Type: application/json
   "nationalId": "12345678A",
   "memberNumber": 150
 }
-
-###
 
 ### 4. Find member by National ID (GET)
 GET http://localhost:8080/api/members/dni/12345678A
