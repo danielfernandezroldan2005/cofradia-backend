@@ -43,4 +43,16 @@ public class AssetController {
         assetService.deleteAsset(id);
         return ResponseEntity.noContent().build();
     }
+
+    // Endpoint to assign an asset to a member
+    @PutMapping("/{assetId}/assign/{memberId}")
+    public ResponseEntity<Asset> assignAssetToMember(@PathVariable Long assetId, @PathVariable Long memberId) {
+        try {
+            Asset updatedAsset = assetService.assignAssetToMember(assetId, memberId);
+            return ResponseEntity.ok(updatedAsset);
+        } catch (RuntimeException e) {
+            // If id of the asset or the member is not found, error 404 will be deployed.
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
