@@ -51,4 +51,9 @@ public class AssetService {
         asset.setAssignedTo(member);
         return assetRepository.save(asset); // UPDATE in MySQL done.
     }
+
+    // Method for obtaining the inventory of a member.
+    public List<Asset> getAssetsByMemberId(Long memberId) {
+        return assetRepository.findByAssignedToId(memberId);
+    }
 }

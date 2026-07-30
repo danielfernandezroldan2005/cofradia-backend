@@ -55,4 +55,11 @@ public class AssetController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    // Endpoint to list all the assets of a member.
+    @GetMapping("/member/{memberId}")
+    public ResponseEntity<List<Asset>> getAssetsByMember(@PathVariable Long memberId) {
+        List<Asset> assets = assetService.getAssetsByMemberId(memberId);
+        return ResponseEntity.ok(assets);
+    }
 }
