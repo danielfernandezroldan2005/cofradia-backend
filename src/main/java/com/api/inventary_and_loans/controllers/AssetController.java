@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 import java.util.List;
 
+// http://localhost:8080/swagger-ui/index.html
+
 @RestController
 @RequestMapping("/api/assets")
 public class AssetController {
