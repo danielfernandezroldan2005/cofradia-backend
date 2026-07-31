@@ -32,7 +32,7 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
-    // Method for obtaining the member in a paginated form.
+    // Method for obtaining the member in a paginated way.
     public Page<Member> getMembersPaginated(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return memberRepository.findAll(pageable);

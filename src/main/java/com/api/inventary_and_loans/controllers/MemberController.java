@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.RequestParam;
+
 @RestController
 @RequestMapping("/api/members")
 public class MemberController {
@@ -37,5 +40,14 @@ public class MemberController {
     public ResponseEntity<Member> createMember(@Valid @RequestBody Member member) {
         Member savedMember = memberService.saveMember(member);
         return ResponseEntity.ok(savedMember);
+    }
+
+    // Endpoint for obtaining members in a paginated way.
+    @GetMapping("/paginated")
+    public Page<Member> getMembersPaginated(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+
+        return memberService.getMembersPaginated(page, size);
     }
 }
