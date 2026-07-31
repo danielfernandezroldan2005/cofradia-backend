@@ -31,7 +31,7 @@ The development of this backend was structured around 10 core engineering challe
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/danielfernandezroldan2005/cofradia-backend.git
 
 2. **Configure the Database:**
    Ensure you have a local instance of MySQL running. Update the `src/main/resources/application.properties` with your local database credentials:
