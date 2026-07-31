@@ -4,6 +4,7 @@ import com.api.inventary_and_loans.entities.Asset;
 import com.api.inventary_and_loans.entities.Member;
 import com.api.inventary_and_loans.repositories.AssetRepository;
 import com.api.inventary_and_loans.repositories.MemberRepository;
+import com.api.inventary_and_loans.dtos.AssetDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -55,5 +56,23 @@ public class AssetService {
     // Method for obtaining the inventory of a member.
     public List<Asset> getAssetsByMemberId(Long memberId) {
         return assetRepository.findByAssignedToId(memberId);
+    }
+
+    // Method for transforming an asset y its dto.
+    public AssetDTO convertToDTO(Asset asset) {
+        AssetDTO dto = new AssetDTO();
+        dto.setId(asset.getId());
+        dto.setName(asset.getName());
+        dto.setCategory(asset.getCategory());
+        dto.setStatus(asset.getStatus());
+
+        // If it has a member assigned we only take its first name and last name.
+        if (asset.getAssignedTo() != null) {
+            dto.setAssignedMemberName(asset.getAssignedTo().getFirstName() + " " + asset.getAssignedTo().getLastName());
+        } else {
+            dto.setAssignedMemberName("No assigned member");
+        }
+
+        return dto;
     }
 }
