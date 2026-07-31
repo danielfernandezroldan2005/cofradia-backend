@@ -2,8 +2,10 @@ package com.api.inventary_and_loans.controllers;
 
 import com.api.inventary_and_loans.entities.Asset;
 import com.api.inventary_and_loans.services.AssetService;
+import com.api.inventary_and_loans.dtos.AssetDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.stream.Collectors;
 
 import java.util.List;
 
@@ -17,10 +19,12 @@ public class AssetController {
         this.assetService = assetService;
     }
 
-    // Endpoint for getting all the assets. (GET)
+    // Endpoint for getting all the assets (DTOs). (GET)
     @GetMapping
-    public List<Asset> getAllAssets() {
-        return assetService.getAllAssets();
+    public List<AssetDTO> getAllAssets() {
+        return assetService.getAllAssets().stream()
+                .map(assetService::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     // Endpoint to look for and asset by id. (GET)
