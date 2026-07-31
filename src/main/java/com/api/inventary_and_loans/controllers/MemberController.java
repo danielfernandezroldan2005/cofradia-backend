@@ -18,13 +18,13 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    // Endpoint for getting all members of the brotherhood/cofradia.
+    // Endpoint for getting all members of the brotherhood/cofradia. (GET)
     @GetMapping
     public List<Member> getAllMembers() {
         return memberService.getAllMembers();
     }
 
-    // Endpoint for getting a member by his id.
+    // Endpoint for getting a member by his id. (GET)
     @GetMapping("/dni/{nationalId}")
     public ResponseEntity<Member> getMemberByNationalId(@PathVariable String nationalId) {
         return memberService.getMemberByNationalId(nationalId)
@@ -32,7 +32,7 @@ public class MemberController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Endpoint for creating a new member and validating him.
+    // Endpoint for creating a new member and validating him. (POST)
     @PostMapping
     public ResponseEntity<Member> createMember(@Valid @RequestBody Member member) {
         Member savedMember = memberService.saveMember(member);
