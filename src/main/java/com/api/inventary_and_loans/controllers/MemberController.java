@@ -18,11 +18,13 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+    // Endpoint for getting all members of the brotherhood/cofradia.
     @GetMapping
     public List<Member> getAllMembers() {
         return memberService.getAllMembers();
     }
 
+    // Endpoint for getting a member by his id.
     @GetMapping("/dni/{nationalId}")
     public ResponseEntity<Member> getMemberByNationalId(@PathVariable String nationalId) {
         return memberService.getMemberByNationalId(nationalId)
@@ -30,6 +32,7 @@ public class MemberController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // Endpoint for creating a new member and validating him.
     @PostMapping
     public ResponseEntity<Member> createMember(@Valid @RequestBody Member member) {
         Member savedMember = memberService.saveMember(member);
