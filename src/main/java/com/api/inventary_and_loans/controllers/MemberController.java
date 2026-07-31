@@ -42,7 +42,7 @@ public class MemberController {
         return ResponseEntity.ok(savedMember);
     }
 
-    // Endpoint for obtaining members in a paginated way.
+    // Endpoint for getting members in a paginated way. (GET)
     @GetMapping("/paginated")
     public Page<Member> getMembersPaginated(
             @RequestParam(defaultValue = "0") int page,
