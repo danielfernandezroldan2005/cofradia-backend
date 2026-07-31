@@ -2,6 +2,7 @@ package com.api.inventary_and_loans.controllers;
 
 import com.api.inventary_and_loans.entities.Member;
 import com.api.inventary_and_loans.services.MemberService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,8 @@ public class MemberController {
     }
 
     @PostMapping
-    public Member createMember(@RequestBody Member member) {
-        return memberService.saveMember(member);
+    public ResponseEntity<Member> createMember(@Valid @RequestBody Member member) {
+        Member savedMember = memberService.saveMember(member);
+        return ResponseEntity.ok(savedMember);
     }
 }
